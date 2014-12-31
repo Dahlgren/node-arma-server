@@ -1,0 +1,22 @@
+{
+  "name": "arma-server",
+  "version": "0.0.1",
+  "description": "Launch arma server",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Björn Dahlgren",
+    "email": "bjorn@dahlgren.at",
+    "url": "http://dahlgren.at/"
+  },
+  "keywords": [
+    "arma"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "mkdirp": "^0.5.0"
+  }
+}
