@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+
+var Headless = require('../src/headless.js');
+
+function list(val) {
+  return val.split(',');
+}
+
+program
+  .option('--game [value]', 'Game to launch')
+  .option('--host [value]', 'Server IP to join')
+  .option('--mods <mods>', 'Comma separated list of mods', list)
+  .option('--password [value]', 'Password required to join server')
+  .option('--path [value]', 'Path to arma server directory')
+  .option('--port [value]', 'Server port to join')
+  .option('--type [value]', 'Type of server, either linux, windows or wine')
+  .parse(process.argv);
+
+var headless = new Headless(program);
+var instance = headless.start();
+
+instance.on('close', function (code) {
+  console.log('child process exited with code ' + code);
+});
+
+instance.on('error', function (err) {
+  console.log('error: ' + err);
+});
+
+instance.stdout.on('data', function (data) {
+  console.log('stdout: ' + data);
+});
+
+instance.stderr.on('data', function (data) {
+  console.log('stderr: ' + data);
+});
