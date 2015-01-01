@@ -30,6 +30,7 @@ var Server = function (options) {
     hostname: null,
     kickDuplicate: null,
     localClient: null,
+    mods: [],
     motd: null,
     motdInterval: null,
     onDifferentData: null,
@@ -74,7 +75,7 @@ Server.prototype.makeConfigParameter = function() {
 
 Server.prototype.makeModsParameter = function() {
   if (this.options.mods) {
-    return '-mod=' + mods.join(';');
+    return '-mod=' + this.options.mods.join(';');
   }
   return null;
 };
