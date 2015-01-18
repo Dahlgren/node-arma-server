@@ -5,8 +5,11 @@ var os = require('os');
 var path = require('path');
 var spawn = require('child_process').spawn;
 
+var executables = require('./executables');
+
 var configTemplate = _.template(fs.readFileSync(path.resolve(__dirname, '../templates/config.tpl'), { 'encoding':'utf8'}));
 var configsDirectory = 'configs';
+
 
 var defaultPlatform = function () {
   if (process.platform === 'win32') {
@@ -26,6 +29,7 @@ var Server = function (options) {
     disableVoN: null,
     doubleIdDetected: null,
     forceRotorLibSimulation: null,
+    game: 'arma3',
     headlessClients: null,
     hostname: null,
     kickDuplicate: null,
@@ -52,11 +56,17 @@ var Server = function (options) {
   });
 };
 
-Server.prototype.armaServerPath = function() {
-  if (this.options.platform === 'linux') {
-    return path.join(this.options.path, 'arma3server');
+Server.prototype.armaServerExecutable = function() {
+  if (executables[this.options.game]) {
+    return executables[this.options.game][this.options.platform];
   }
-  return path.join(this.options.path, 'arma3server.exe');
+  return null;
+};
+
+Server.prototype.armaServerPath = function() {
+  var executable = this.armaServerExecutable();
+  if (!executable) return null;
+  return path.join(this.options.path, executable);
 };
 
 Server.prototype.serverConfigPath = function() {
