@@ -69,18 +69,15 @@ Server.prototype.armaServerPath = function() {
   return path.join(this.options.path, executable);
 };
 
-Server.prototype.serverConfigPath = function() {
-  return path.join(this.options.path, configsDirectory, this.options.config);
-};
-
 Server.prototype.writeServerConfig = function() {
   var config = configTemplate(this.options);
   mkdirp.sync(path.join(this.options.path, configsDirectory));
-  fs.writeFileSync(this.serverConfigPath(), config);
+  var file = path.join(this.options.path, configsDirectory, this.options.config);
+  fs.writeFileSync(file, config);
 };
 
 Server.prototype.makeConfigParameter = function() {
-  return '-config=' + this.serverConfigPath();
+  return '-config=' + path.join(configsDirectory, this.options.config);
 };
 
 Server.prototype.makeModsParameter = function() {
