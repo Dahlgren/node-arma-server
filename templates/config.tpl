@@ -159,7 +159,7 @@ headlessClients[] = {
 // to indicate clients with unlimited bandwidth and nearly no latency (https://dev-heaven.net/issues/62500), Available since Arma 2:OA build 99184 , including Arma 3
 localClient[]={
   <% _.forEach(localClient, function(client) { %>
-    <%= client %>,
+    "<%= client %>",
   <% }) %>
 };
 <% } %>
