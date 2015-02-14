@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+
+var Server = require('../src/server.js');
+
+function list(val) {
+  return val.split(',');
+}
+
+program
+  .option('--config [value]', 'Server config name')
+  .option('--disableVoN [value]', 'Disable VON')
+  .option('--game [value]', 'Game to launch')
+  .option('--headlessClients <clients>', 'Whitelisted IPs for headless clients', list)
+  .option('--hostname [value]', 'Name in server list')
+  .option('--localClient <clients>', 'Whitelisted IPs for local clients', list)
+  .option('--mods <mods>', 'Comma separated list of mods', list)
+  .option('--motd <motd>', 'Comma separated list of messages to show', list)
+  .option('--motdInterval [value]', 'Interval between messages')
+  .option('--password [value]', 'Password required to join server')
+  .option('--passwordAdmin [value]', 'Admin password required to join server')
+  .option('--path [value]', 'Path to arma server directory')
+  .option('--persistent [value]', 'Run server persistent')
+  .option('--platform [value]', 'Type of server, either linux, windows or wine')
+  .option('--players [value]', 'Maximum number of player slots')
+  .option('--verifySignatures [value]', 'Verifies .pbos against .bisign files')
+  .parse(process.argv);
+
+var server = new Server(program);
+server.writeServerConfig();
+var instance = server.start();
+
+instance.on('close', function (code) {
+  console.log('child process exited with code ' + code);
+});
+
+instance.on('error', function (err) {
+  console.log('error: ' + err);
+});
+
+instance.stdout.on('data', function (data) {
+  console.log('stdout: ' + data);
+});
+
+instance.stderr.on('data', function (data) {
+  console.log('stderr: ' + data);
+});
