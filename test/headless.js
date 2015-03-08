@@ -2,6 +2,23 @@ var should = require('should');
 var Headless = require('../src/headless');
 
 describe('headless', function() {
+  describe('armaServerExecutable', function() {
+    it('should use correct executable for linux', function() {
+      var headless = new Headless({platform: "linux"});
+      headless.armaServerExecutable().should.eql("arma3server");
+    });
+
+    it('should use correct executable for windows', function() {
+      var headless = new Headless({platform: "windows"});
+      headless.armaServerExecutable().should.eql("arma3server.exe");
+    });
+
+    it('should use correct executable for wine', function() {
+      var headless = new Headless({platform: "wine"});
+      headless.armaServerExecutable().should.eql("arma3server.exe");
+    });
+  });
+
   describe('makeHostParameter', function() {
     it('should create connect parameter for supplied host', function() {
       var headless = new Headless({host: "domain.test"});

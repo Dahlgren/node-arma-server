@@ -28,10 +28,7 @@ var Headless = function (options) {
 };
 
 Headless.prototype.armaServerExecutable = function() {
-  if (executables[this.options.game]) {
-    return executables[this.options.game][this.options.platform];
-  }
-  return null;
+  return executables(this.options.game, this.options.platform);
 };
 
 Headless.prototype.armaServerPath = function() {
