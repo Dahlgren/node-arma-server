@@ -7,7 +7,7 @@ var spawn = require('child_process').spawn;
 
 var executables = require('./executables');
 
-var configTemplate = _.template(fs.readFileSync(path.resolve(__dirname, '../templates/config.tpl'), { 'encoding':'utf8'}));
+var configTemplate = _.template(fs.readFileSync(path.resolve(__dirname, '../templates/config.tpl')).toString());
 var configsDirectory = 'configs';
 
 
