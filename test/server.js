@@ -2,6 +2,23 @@ var should = require('should');
 var Server = require('../src/server');
 
 describe('server', function() {
+  describe('armaServerExecutable', function() {
+    it('should use correct executable for linux', function() {
+      var server = new Server({platform: "linux"});
+      server.armaServerExecutable().should.eql("arma3server");
+    });
+
+    it('should use correct executable for windows', function() {
+      var server = new Server({platform: "windows"});
+      server.armaServerExecutable().should.eql("arma3server.exe");
+    });
+
+    it('should use correct executable for wine', function() {
+      var server = new Server({platform: "wine"});
+      server.armaServerExecutable().should.eql("arma3server.exe");
+    });
+  });
+
   describe('makeModsParameter', function() {
     it('should create mods parameter for single mod', function() {
       var server = new Server({mods: ["@mod"]});

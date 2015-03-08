@@ -1,4 +1,4 @@
-module.exports = {
+var executables = {
   arma1: {
     linux: "server",
     windows: "arma_server.exe",
@@ -26,4 +26,16 @@ module.exports = {
     linux: "server",
     windows: "ofpr_server.exe",
   }
+};
+
+module.exports = function (game, platform) {
+  if (platform === "wine") {
+    platform = "windows";
+  }
+
+  if (executables[game]) {
+    return executables[game][platform];
+  }
+
+  return null;
 };

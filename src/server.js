@@ -57,10 +57,7 @@ var Server = function (options) {
 };
 
 Server.prototype.armaServerExecutable = function() {
-  if (executables[this.options.game]) {
-    return executables[this.options.game][this.options.platform];
-  }
-  return null;
+  return executables(this.options.game, this.options.platform);
 };
 
 Server.prototype.armaServerPath = function() {
