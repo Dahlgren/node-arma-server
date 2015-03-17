@@ -1,7 +1,11 @@
 {
   "name": "arma-server",
   "version": "0.0.1",
-  "description": "Launch arma server",
+  "description": "Launch arma server or headless client",
+  "homepage": "https://github.com/Dahlgren/node-arma-server",
+  "keywords": [
+    "arma"
+  ],
   "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
@@ -27,5 +31,10 @@
   "devDependencies": {
     "mocha": "^2.2.0",
     "should": "^5.1.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/Dahlgren/node-arma-server.git"
   }
 }
