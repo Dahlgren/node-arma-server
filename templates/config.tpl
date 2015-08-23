@@ -163,3 +163,15 @@ localClient[]={
   <% }) %>
 };
 <% } %>
+
+<% if (missions) { %>
+// Missions defined for rotation
+class Missions {
+  <% _.forEach(missions, function(mission, index) { %>
+    class mission_<%= index + 1 %> {
+      template = "<%= mission.name %>";
+      difficulty = "<%= mission.difficulty %>";
+    };
+  <% }) %>
+};
+<% } %>

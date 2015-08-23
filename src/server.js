@@ -34,6 +34,7 @@ var Server = function (options) {
     hostname: null,
     kickDuplicate: null,
     localClient: null,
+    missions: null,
     mods: [],
     motd: null,
     motdInterval: null,

@@ -111,6 +111,7 @@ headlessClients | array of strings | game default | Whitelist headless clients, 
 hostname | string | game default | Name of server
 kickDuplicate | boolean | game default | Should duplicate clients be kicked
 localClient | array of strings | game default | Whitelist local clients, array of IPs as strings
+missions | array | game default | Array of missions as object with mission name and difficulty, see below
 mods | array | [] | Array of mods as strings to use, relative to game folder
 motd | array of strings | game default | Messages to show as MOTD
 motdInterval | integer | game default | Time between motds
@@ -130,3 +131,10 @@ verifySignatures | integer | game default | Addons signature verification. Defau
 vonCodecQuality | integer | game default | Value of 1 - 20, default is 3. See references
 voteMissionPlayers | integer | game default | Numbers of players needed to be connected before mission vote
 voteThreshold | float | game default | Percentage required to win voting
+
+##### Missions
+
+Key | Type | Description
+--- | --- | ---
+name | string | Name of mission, could either be filename without pbo suffix or mission name as declared in cfgMissions
+difficulty | string | In Arma 2 and above, recruit, regular, veteran or mercenary
