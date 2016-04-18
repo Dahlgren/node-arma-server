@@ -11,6 +11,7 @@ function list(val) {
 program
   .option('--config [value]', 'Server config name')
   .option('--disableVoN [value]', 'Disable VON')
+  .option('--filePatching', 'Enable file patching')
   .option('--game [value]', 'Game to launch')
   .option('--headlessClients <clients>', 'Whitelisted IPs for headless clients', list)
   .option('--hostname [value]', 'Name in server list')

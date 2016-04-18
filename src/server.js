@@ -28,6 +28,7 @@ var Server = function (options) {
     config: 'server.config',
     disableVoN: null,
     doubleIdDetected: null,
+    filePatching: null,
     forceRotorLibSimulation: null,
     game: 'arma3',
     headlessClients: null,
@@ -134,6 +135,10 @@ Server.prototype.start = function() {
 
   if (this.options.serverMods && this.options.serverMods.length) {
     startParams.push(this.makeServerModsParameter());
+  }
+
+  if (this.options.filePatching) {
+    startParams.push('-filePatching');
   }
 
   startParams.push(this.makeConfigParameter());
