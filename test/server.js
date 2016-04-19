@@ -31,6 +31,18 @@ describe('server', function() {
     });
   });
 
+  describe('makeServerModsParameter', function() {
+    it('should create server mods parameter for single mod', function() {
+      var server = new Server({serverMods: ["@mod"]});
+      server.makeServerModsParameter().should.eql("-serverMod=@mod");
+    });
+
+    it('should create server mods parameter for multiple mod', function() {
+      var server = new Server({serverMods: ["@mod1", "@mod2"]});
+      server.makeServerModsParameter().should.eql("-serverMod=@mod1;@mod2");
+    });
+  });
+
   describe('makePortParameter', function() {
     it('should create port parameter for supplied port', function() {
       var server = new Server({port: 2302});

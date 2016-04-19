@@ -50,6 +50,7 @@ var Server = function (options) {
     persistent: null,
     platform: defaultPlatform(),
     players: null,
+    serverMods: [],
     timeStampFormat: null,
     verifySignatures: null,
     vonCodecQuality: null,
@@ -93,6 +94,13 @@ Server.prototype.makePortParameter = function() {
   return null;
 };
 
+Server.prototype.makeServerModsParameter = function() {
+  if (this.options.mods) {
+    return '-serverMod=' + this.options.serverMods.join(';');
+  }
+  return null;
+};
+
 Server.prototype.start = function() {
   var startParams = [];
   var gamePath = this.armaServerPath();
@@ -122,6 +130,10 @@ Server.prototype.start = function() {
 
   if (this.options.port) {
     startParams.push(this.makePortParameter());
+  }
+
+  if (this.options.serverMods && this.options.serverMods.length) {
+    startParams.push(this.makeServerModsParameter());
   }
 
   startParams.push(this.makeConfigParameter());

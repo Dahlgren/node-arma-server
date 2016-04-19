@@ -55,6 +55,7 @@ Install the module globally from NPM
 --persistent [value]         Run server persistent
 --platform [value]           Type of server, either linux, windows or wine
 --players [value]            Maximum number of player slots
+--serverMods <mods>          Comma separated list of server mods
 --verifySignatures [value]   Verifies .pbos against .bisign files
 ```
 
@@ -128,6 +129,7 @@ path | string | current working directory | Path to game folder
 persistent | boolean | game default | If server should run in persistent mode
 platform | string | 'linux' or 'windows' depending on current OS | 'linux', 'windows' or 'wine' depending on which to use
 players | integer | game default | Number of player slots
+serverMods | array | [] | Array of server mods as strings to use, relative to game folder
 timeStampFormat | string | game default | Log timestamp format, see references
 verifySignatures | integer | game default | Addons signature verification. Default = 0. Weak = 1. Full = 2. See references
 vonCodecQuality | integer | game default | Value of 1 - 20, default is 3. See references

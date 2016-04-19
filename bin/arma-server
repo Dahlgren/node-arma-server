@@ -24,6 +24,7 @@ program
   .option('--persistent [value]', 'Run server persistent')
   .option('--platform [value]', 'Type of server, either linux, windows or wine')
   .option('--players [value]', 'Maximum number of player slots')
+  .option('--serverMods <mods>', 'Comma separated list of server mods', list)
   .option('--verifySignatures [value]', 'Verifies .pbos against .bisign files')
   .parse(process.argv);
 
