@@ -43,6 +43,7 @@ var Server = function (options) {
     onUnsignedData: null,
     onUserConnected: null,
     onUserDisconnected: null,
+    parameters: ['-noSound', '-world=empty'],
     password: null,
     passwordAdmin: null,
     path: process.cwd(),
@@ -113,13 +114,17 @@ Server.prototype.start = function() {
     startParams.push(this.makeModsParameter());
   }
 
+  if (this.options.parameters) {
+    this.options.parameters.map(function (parameter) {
+      startParams.push(parameter);
+    });
+  }
+
   if (this.options.port) {
     startParams.push(this.makePortParameter());
   }
 
   startParams.push(this.makeConfigParameter());
-  startParams.push('-noSound');
-  startParams.push('-world=empty');
 
   return spawn(gamePath, startParams, options);
 };
