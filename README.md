@@ -24,6 +24,7 @@ Install the module globally from NPM
 #### Options
 ```
 -h, --help          output usage information
+--filePatching      Enable file patching
 --game [value]      Game to launch
 --host [value]      Server IP to join
 --mods <mods>       Comma separated list of mods
@@ -42,6 +43,7 @@ Install the module globally from NPM
 -h, --help                   output usage information
 --config [value]             Server config name
 --disableVoN [value]         Disable VON
+--filePatching               Enable file patching
 --game [value]               Game to launch
 --headlessClients <clients>  Whitelisted IPs for headless clients
 --hostname [value]           Name in server list
@@ -76,6 +78,7 @@ References,
 
 Option | Type | Default | Description
 --- | --- | --- | ---
+filePatching | boolean | game default | Enable file patching
 game | string | 'arma3' | Which game engine to use
 host | string | game default | IP or hostname that client should connect to
 mods | array of strings | [] | Array of mods as strings to use, relative to game folder
@@ -107,6 +110,7 @@ battleEye | boolean | game default | Should BattleEye be enabled
 config | string | 'server.config' | Name of config file to be saved, stored in configs directory
 disableVoN | boolean | game default | Should built in VoN be disabled
 doubleIdDetected | string | game default | Server side script to execute on duplicate client id
+filePatching | boolean | game default | Enable file patching
 forceRotorLibSimulation | boolean | game default | Force rotor simulation from Helicopters DLC
 game | string | 'arma3' | Which game to start
 headlessClients | array of strings | game default | Whitelist headless clients, array of IPs as strings

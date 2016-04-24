@@ -17,6 +17,7 @@ var defaultPlatform = function () {
 
 var Headless = function (options) {
   this.options = _.defaults(options, {
+    filePatching: null,
     game: 'arma3',
     host: null,
     mods: [],
@@ -103,6 +104,10 @@ Headless.prototype.start = function() {
 
   if (this.options.port) {
     startParams.push(this.makePortParameter());
+  }
+
+  if (this.options.filePatching) {
+    startParams.push('-filePatching');
   }
 
   startParams.push('-client');

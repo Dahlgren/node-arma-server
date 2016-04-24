@@ -9,6 +9,7 @@ function list(val) {
 }
 
 program
+  .option('--filePatching', 'Enable file patching')
   .option('--game [value]', 'Game to launch')
   .option('--host [value]', 'Server IP to join')
   .option('--mods <mods>', 'Comma separated list of mods', list)
