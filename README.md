@@ -78,6 +78,7 @@ Option | Type | Default | Description
 game | string | 'arma3' | Which game engine to use
 host | string | game default | IP or hostname that client should connect to
 mods | array of strings | [] | Array of mods as strings to use, relative to game folder
+parameters | array | ['-noSound', '-world=empty'] | Additional parameters that will be passed to the arma executable
 password | string | game default | Server password
 path | string | current working directory | Path to Arma directory
 platform | string | 'linux' or 'windows' depending on current OS | 'linux', 'windows' or 'wine' depeding on which to use
@@ -120,6 +121,7 @@ onHackedData | string | game default | Server side script to execute on hacked d
 onUnsignedData | string | game default | Server side script to execute on unsigned data
 onUserConnected | string | game default | Server side script to execute on user connected
 onUserDisconnected | string | game default | Server side script to execute on user disconnected
+parameters | array | ['-noSound', '-world=empty'] | Additional parameters that will be passed to the arma executable
 password | string | game default | Server password
 passwordAdmin | string | game default | Admin password
 path | string | current working directory | Path to game folder

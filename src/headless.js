@@ -20,6 +20,7 @@ var Headless = function (options) {
     game: 'arma3',
     host: null,
     mods: [],
+    parameters: ['-noSound', '-world=empty'],
     password: null,
     path: process.cwd(),
     platform: defaultPlatform(),
@@ -94,13 +95,17 @@ Headless.prototype.start = function() {
     startParams.push(this.makePasswordParameter());
   }
 
+  if (this.options.parameters) {
+    this.options.parameters.map(function (parameter) {
+      startParams.push(parameter);
+    });
+  }
+
   if (this.options.port) {
     startParams.push(this.makePortParameter());
   }
 
   startParams.push('-client');
-  startParams.push('-noSound');
-  startParams.push('-world=empty');
 
   return spawn(gamePath, startParams, options);
 };
