@@ -70,7 +70,9 @@ Headless.prototype.makePortParameter = function() {
 Headless.prototype.start = function() {
   var startParams = [];
   var gamePath = this.armaServerPath();
-  var options = null;
+  var options = {
+    env: process.env,
+  };
 
   if (this.options.platform === 'linux') {
     options = {
