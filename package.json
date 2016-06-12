@@ -1,6 +1,6 @@
 {
   "name": "arma-server",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Launch arma server or headless client",
   "homepage": "https://github.com/Dahlgren/node-arma-server",
   "keywords": [
