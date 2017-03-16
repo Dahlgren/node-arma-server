@@ -7,6 +7,7 @@ Node wrapper for starting arma servers
 - arma2
 - arma2oa
 - arma3
+- arma3_x64 (does not support linux)
 - cwa (does not support linux)
 - ofp
 - ofpresistance

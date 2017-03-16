@@ -15,6 +15,9 @@ var executables = {
     linux: "arma3server",
     windows: "arma3server.exe",
   },
+  arma3_x64: {
+    windows: "arma3server_x64.exe",
+  },
   cwa: {
     windows: "coldwarassault_server.exe",
   },
