@@ -114,6 +114,12 @@ allowedHTMLLoadExtensions[] = {
 };
 <% } %>
 
+<% if (allowedFilePatching !== null) { %>
+// Allow or prevent client using -filePatching to join the server.
+// 0 is disallow, 1 is allow HC, 2 is allow all clients
+allowedFilePatching = <%= allowedFilePatching %>;
+<% } %>
+
 <% if (onUserConnected !== null) { %>
 // Server Side Script to be executed upon user connected
 onUserConnected = "<%= onUserConnected %>";
