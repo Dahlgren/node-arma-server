@@ -8,6 +8,7 @@
   ],
   "main": "src/index.js",
   "scripts": {
+    "lint": "standard --verbose",
     "test": "./node_modules/.bin/mocha"
   },
   "bin": {
@@ -19,9 +20,6 @@
     "email": "bjorn@dahlgren.at",
     "url": "http://dahlgren.at/"
   },
-  "keywords": [
-    "arma"
-  ],
   "license": "MIT",
   "dependencies": {
     "commander": "^2.9.0",
@@ -30,11 +28,16 @@
   },
   "devDependencies": {
     "mocha": "^3.4.2",
-    "should": "^11.2.1"
+    "should": "^11.2.1",
+    "standard": "^10.0.2"
   },
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "http://github.com/Dahlgren/node-arma-server.git"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
   }
 }
