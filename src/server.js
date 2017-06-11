@@ -5,8 +5,8 @@ var path = require('path')
 var spawn = require('child_process').spawn
 
 var executables = require('./executables')
+var ConfigGenerator = require('./config_Generator')
 
-var configTemplate = _.template(fs.readFileSync(path.resolve(__dirname, '../templates/config.tpl')).toString())
 var configsDirectory = 'configs'
 
 var defaultPlatform = function () {
@@ -19,47 +19,16 @@ var defaultPlatform = function () {
 
 var Server = function (options) {
   this.options = _.defaults(options, {
-    admins: null,
-    allowedFilePatching: null,
-    allowedHTMLLoadExtensions: null,
-    allowedLoadFileExtensions: null,
-    allowedPreprocessFileExtensions: null,
-    battleEye: null,
     config: 'server.config',
-    disableVoN: null,
-    doubleIdDetected: null,
     filePatching: null,
-    forceRotorLibSimulation: null,
-    forcedDifficulty: null,
     game: 'arma3',
-    headlessClients: null,
-    hostname: null,
-    kickDuplicate: null,
-    localClient: null,
-    logFile: null,
-    missions: null,
     mods: [],
-    motd: null,
-    motdInterval: null,
-    onDifferentData: null,
-    onHackedData: null,
-    onUnsignedData: null,
-    onUserConnected: null,
-    onUserDisconnected: null,
     parameters: ['-noSound', '-world=empty'],
-    password: null,
-    passwordAdmin: null,
     path: process.cwd(),
-    persistent: null,
     platform: defaultPlatform(),
-    players: null,
-    serverMods: [],
-    timeStampFormat: null,
-    verifySignatures: null,
-    vonCodecQuality: null,
-    voteMissionPlayers: null,
-    voteThreshold: null
+    serverMods: []
   })
+  this.configGenerator = new ConfigGenerator(options)
 }
 
 Server.prototype.armaServerExecutable = function () {
@@ -73,7 +42,7 @@ Server.prototype.armaServerPath = function () {
 }
 
 Server.prototype.writeServerConfig = function () {
-  var config = configTemplate(this.options)
+  var config = this.configGenerator.generate()
   mkdirp.sync(path.join(this.options.path, configsDirectory))
   var file = path.join(this.options.path, configsDirectory, this.options.config)
   fs.writeFileSync(file, config)
