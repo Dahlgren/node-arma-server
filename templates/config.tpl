@@ -1,3 +1,11 @@
+<% if (admins !== null) { %>
+admins[]= {
+  <% _.forEach(admins, function(uid) { %>
+    "<%= uid %>",
+  <% }) %>
+};
+<% } %>
+
 <% if (hostname !== null) { %>
 // Servername visible in the game browser.
 hostname = "<%= hostname %>";

@@ -104,6 +104,7 @@ Not all options are available yet
 #### Options
 Option | Type | Default | Description
 --- | --- | --- | ---
+admins | array | game default | Whitelist UIDs as admins, array of strings
 allowedFilePatching | integer | game default | Allow clients to use file patching. 0 is disallow, 1 is allow HC, 2 is allow all clients
 allowedHTMLLoadExtensions | array of strings | game default | Whitelisted file extensions allowed
 allowedLoadFileExtensions | array of strings | game default | Whitelisted file extensions allowed
