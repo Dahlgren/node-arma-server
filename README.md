@@ -116,10 +116,12 @@ doubleIdDetected | string | game default | Server side script to execute on dupl
 filePatching | boolean | game default | Enable file patching
 forceRotorLibSimulation | boolean | game default | Force rotor simulation from Helicopters DLC
 game | string | 'arma3' | Which game to start
+forcedDifficulty | string | game default | Set forced difficulty from matching CfgDifficultyPresets or Custom to use CustomDifficulty. Missions list with defined difficulty overrides this value.
 headlessClients | array of strings | game default | Whitelist headless clients, array of IPs as strings
 hostname | string | game default | Name of server
 kickDuplicate | boolean | game default | Should duplicate clients be kicked
 localClient | array of strings | game default | Whitelist local clients, array of IPs as strings
+logFile | string | game default | Path to log file
 missions | array | game default | Array of missions as object with mission name and difficulty, see below
 mods | array | [] | Array of mods as strings to use, relative to game folder
 motd | array of strings | game default | Messages to show as MOTD

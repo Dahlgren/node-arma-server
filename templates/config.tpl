@@ -26,6 +26,10 @@ passwordAdmin = "<%= passwordAdmin %>";
 maxPlayers = <%= players %>;
 <% } %>
 
+<% if (logFile !== null) { %>
+logFile = "<%=logFile %>";
+<% } %>
+
 <% if (motd !== null) { %>
 // WELCOME MESSAGE ("message of the day")
 // It can be several lines, separated by comma
@@ -85,6 +89,10 @@ timeStampFormat = "<%= timeStampFormat %>";
 <% if (battleEye !== null) { %>
 // Server to use BattlEye system
 BattlEye = <%= battleEye %>;
+<% } %>
+
+<% if (forcedDifficulty !== null) { %>
+forcedDifficulty = "<%= forcedDifficulty %>";
 <% } %>
 
 <% if (forceRotorLibSimulation !== null) { %>
