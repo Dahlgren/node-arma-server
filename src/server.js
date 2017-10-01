@@ -20,7 +20,7 @@ var defaultPlatform = function () {
 var Server = function (options) {
   this.options = _.defaults(options, {
     admins: null,
-    allowedFilePatching: null,
+    allowedFilePatching: options.filePatching ? 1 : null,
     allowedHTMLLoadExtensions: null,
     allowedLoadFileExtensions: null,
     allowedPreprocessFileExtensions: null,
