@@ -1,3 +1,11 @@
+<% if (admins !== null) { %>
+admins[]= {
+  <% _.forEach(admins, function(uid) { %>
+    "<%= uid %>",
+  <% }) %>
+};
+<% } %>
+
 <% if (hostname !== null) { %>
 // Servername visible in the game browser.
 hostname = "<%= hostname %>";
@@ -16,6 +24,10 @@ passwordAdmin = "<%= passwordAdmin %>";
 <% if (players !== null && players > 0) { %>
 // The maximum number of players that can connect to server. Number of mission slots override this setting.
 maxPlayers = <%= players %>;
+<% } %>
+
+<% if (logFile !== null) { %>
+logFile = "<%=logFile %>";
 <% } %>
 
 <% if (motd !== null) { %>
@@ -77,6 +89,10 @@ timeStampFormat = "<%= timeStampFormat %>";
 <% if (battleEye !== null) { %>
 // Server to use BattlEye system
 BattlEye = <%= battleEye %>;
+<% } %>
+
+<% if (forcedDifficulty !== null) { %>
+forcedDifficulty = "<%= forcedDifficulty %>";
 <% } %>
 
 <% if (forceRotorLibSimulation !== null) { %>

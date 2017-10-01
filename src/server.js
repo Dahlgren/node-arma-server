@@ -19,6 +19,7 @@ var defaultPlatform = function () {
 
 var Server = function (options) {
   this.options = _.defaults(options, {
+    admins: null,
     allowedFilePatching: null,
     allowedHTMLLoadExtensions: null,
     allowedLoadFileExtensions: null,
@@ -29,11 +30,13 @@ var Server = function (options) {
     doubleIdDetected: null,
     filePatching: null,
     forceRotorLibSimulation: null,
+    forcedDifficulty: null,
     game: 'arma3',
     headlessClients: null,
     hostname: null,
     kickDuplicate: null,
     localClient: null,
+    logFile: null,
     missions: null,
     mods: [],
     motd: null,
