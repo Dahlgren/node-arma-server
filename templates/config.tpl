@@ -197,3 +197,7 @@ class Missions {
   <% }) %>
 };
 <% } %>
+
+<% if (additionalConfigurationOptions !== null) { %>
+<%= additionalConfigurationOptions %>
+<% } %>

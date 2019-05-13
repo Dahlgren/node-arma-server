@@ -104,6 +104,7 @@ Not all options are available yet
 #### Options
 Option | Type | Default | Description
 --- | --- | --- | ---
+additionalConfigurationOptions | string | empty | Additional configuration options as text appended to the configuration file if defined. Make sure to not reuse any other defined configuration options as they will end up twice in the file.
 admins | array | game default | Whitelist UIDs as admins, array of strings
 allowedFilePatching | integer | game default | Allow clients to use file patching. 0 is disallow, 1 is allow HC, 2 is allow all clients
 allowedHTMLLoadExtensions | array of strings | game default | Whitelisted file extensions allowed
