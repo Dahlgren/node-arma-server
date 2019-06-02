@@ -19,6 +19,7 @@ var defaultPlatform = function () {
 
 var Server = function (options) {
   this.options = _.defaults(options, {
+    additionalConfigurationOptions: null,
     admins: null,
     allowedFilePatching: null,
     allowedHTMLLoadExtensions: null,
