@@ -4,13 +4,11 @@ branches:
   only:
   - master
 node_js:
+  - "12"
+  - "10"
   - "8"
-  - "7"
   - "6"
-  - "5"
   - "4"
-  - "0.12"
-  - "0.10"
 script:
   - npm run lint
   - npm test
