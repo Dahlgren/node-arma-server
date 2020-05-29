@@ -109,14 +109,8 @@ Server.prototype.start = function () {
   var startParams = []
   var gamePath = this.armaServerPath()
   var options = {
+    cwd: this.options.path,
     env: process.env
-  }
-
-  if (this.options.platform === 'linux') {
-    options = {
-      cwd: this.options.path,
-      env: process.env
-    }
   }
 
   if (this.options.platform === 'wine') {
