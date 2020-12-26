@@ -193,6 +193,13 @@ class Missions {
     class mission_<%= index + 1 %> {
       template = "<%= mission.name %>";
       difficulty = "<%= mission.difficulty %>";
+      class Params {
+      <% if (mission.params) { %>
+        <% _.forEach(mission.params, function(param) { %>
+          <%= param.name %> = <%= param.value %>;
+        <% }) %>
+      <% } %>
+      };
     };
   <% }) %>
 };
