@@ -123,7 +123,7 @@ hostname | string | game default | Name of server
 kickDuplicate | boolean | game default | Should duplicate clients be kicked
 localClient | array of strings | game default | Whitelist local clients, array of IPs as strings
 logFile | string | game default | Path to log file
-missions | array | game default | Array of missions as object with mission name and difficulty, see below
+missions | array | game default | Array of missions as object with mission name and difficulty. Params can also be optionally set. See below
 mods | array | [] | Array of mods as strings to use, relative to game folder
 motd | array of strings | game default | Messages to show as MOTD
 motdInterval | integer | game default | Time between motds
@@ -152,3 +152,11 @@ Key | Type | Description
 --- | --- | ---
 name | string | Name of mission, could either be filename without pbo suffix or mission name as declared in cfgMissions
 difficulty | string | In Arma 2 and above, recruit, regular, veteran or mercenary
+params | array | Array with mission parameters, see below
+
+##### Mission Parameters
+
+Key | Type | Description
+--- | --- | ---
+name | string | Mission parameter name as declared in the mission
+value | number | Mission parameter value
