@@ -27,6 +27,7 @@ var Server = function (options) {
     allowedPreprocessFileExtensions: null,
     battleEye: null,
     config: 'server.config',
+    debug: null,
     disableVoN: null,
     doubleIdDetected: null,
     filePatching: null,
@@ -138,6 +139,10 @@ Server.prototype.start = function () {
 
   if (this.options.filePatching) {
     startParams.push('-filePatching')
+  }
+
+  if (this.options.debug) {
+    startParams.push('-debug')
   }
 
   startParams.push(this.makeConfigParameter())

@@ -14,6 +14,7 @@ var defaultPlatform = function () {
 
 var Headless = function (options) {
   this.options = _.defaults(options, {
+    debug: null,
     filePatching: null,
     game: 'arma3',
     host: null,
@@ -107,6 +108,10 @@ Headless.prototype.start = function () {
 
   if (this.options.filePatching) {
     startParams.push('-filePatching')
+  }
+
+  if (this.options.debug) {
+    startParams.push('-debug')
   }
 
   startParams.push('-client')
