@@ -136,6 +136,12 @@ allowedHTMLLoadExtensions[] = {
 allowedFilePatching = <%= allowedFilePatching %>;
 <% } %>
 
+<% if (debug !== null) { %>
+// More verbose logging (e.g. stack traces)
+// set to 1 to activate
+debug = <%= debug %>;
+<% } %>
+
 <% if (onUserConnected !== null) { %>
 // Server Side Script to be executed upon user connected
 onUserConnected = "<%= onUserConnected %>";

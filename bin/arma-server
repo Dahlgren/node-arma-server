@@ -10,6 +10,7 @@ function list(val) {
 
 program
   .option('--config [value]', 'Server config name')
+  .option('--debug', 'More verbose logging (e.g. stack traces)')
   .option('--disableVoN [value]', 'Disable VON')
   .option('--filePatching', 'Enable file patching')
   .option('--game [value]', 'Game to launch')

@@ -25,6 +25,7 @@ Install the module globally from NPM
 #### Options
 ```
 -h, --help          output usage information
+--debug             More verbose logging (e.g. stack traces)
 --filePatching      Enable file patching
 --game [value]      Game to launch
 --host [value]      Server IP to join
@@ -43,6 +44,7 @@ Install the module globally from NPM
 ```
 -h, --help                   output usage information
 --config [value]             Server config name
+--debug                      More verbose logging (e.g. stack traces)
 --disableVoN [value]         Disable VON
 --filePatching               Enable file patching
 --game [value]               Game to launch
@@ -79,6 +81,7 @@ References,
 
 Option | Type | Default | Description
 --- | --- | --- | ---
+debug | boolean | game default | More verbose logging (e.g. stack traces)
 filePatching | boolean | game default | Enable file patching
 game | string | 'arma3' | Which game engine to use
 host | string | game default | IP or hostname that client should connect to
@@ -112,6 +115,7 @@ allowedLoadFileExtensions | array of strings | game default | Whitelisted file e
 allowedPreprocessFileExtensions | array of strings | game default | Whitelisted file extensions allowed
 battleEye | boolean | game default | Should BattleEye be enabled
 config | string | 'server.config' | Name of config file to be saved, stored in configs directory
+debug | boolean | game default | More verbose logging (e.g. stack traces)
 disableVoN | boolean | game default | Should built in VoN be disabled
 doubleIdDetected | string | game default | Server side script to execute on duplicate client id
 filePatching | boolean | game default | Enable file patching
