@@ -80,6 +80,21 @@ Server.prototype.writeServerConfig = function () {
   fs.writeFileSync(file, config)
 }
 
+Server.prototype.writeBattleEyeConfig = function (config) {
+  if(this.options.battleEye)
+  {
+    var filePath = path.join(this.options.path, 'battleye/BEServer_x64.cfg')
+    fs.writeFileSync(filePath, config)
+
+    var filePath2 = path.join(this.options.path, 'battleye/BEServer.cfg')
+    fs.writeFileSync(filePath2, config)
+  }
+}
+
+Server.prototype.battleEyeConfigPath = function () {
+  return path.join(this.options.path, 'battleye')
+}
+
 Server.prototype.makeConfigParameter = function () {
   return '-config=' + path.join(configsDirectory, this.options.config)
 }
